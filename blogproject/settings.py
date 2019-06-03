@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'zsvx=$#f+^3tt3_g$j$g^5t8(qq@t4f2%f5k714-&mlbt-2-35'
-SECRET_KEY = os.environ.get('zsvx=$#f+^3tt3_g$j$g^5t8(qq@t4f2%f5k714-&mlbt-2-35')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'zsvx=$#f+^3tt3_g$j$g^5t8(qq@t4f2%f5k714-&mlbt-2-35')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
@@ -136,5 +136,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 import dj_database_url
-db_from_env=dj_database_url.config(conn_max_age=500)
-DATABASE['default']. update(db_from_env)
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
